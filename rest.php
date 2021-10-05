@@ -1,7 +1,7 @@
 
 <?php
 //{"course_id": "DT152G", "name": "Webbdesign för CMS", "progression": "B", "course_syllabus": "länk"}
-require "config/Course-db.php";
+// Inkluderar klass
 require "config/Course.php";
 
 /*Headers med inställningar för din REST webbtjänst*/
