@@ -25,7 +25,7 @@ class Course
         $sql = "SELECT * FROM Courses ORDER BY id;";
         $result = $this->db->query($sql);
 
-        if (mysqli_num_rows($result)){
+        if (mysqli_num_rows($result)) {
             return $result->fetch_all(MYSQLI_ASSOC);
         } else {
             return false;
@@ -38,7 +38,7 @@ class Course
         $sql = "SELECT * FROM Courses WHERE id=$id";
         $result = $this->db->query($sql);
 
-        if (mysqli_num_rows($result)){
+        if (mysqli_num_rows($result)) {
             return $result->fetch_all(MYSQLI_ASSOC);
         } else {
             return false;
@@ -69,6 +69,7 @@ class Course
             $prog = htmlspecialchars($prog);
             $syllabus = htmlspecialchars($syllabus);
 
+            // Lägg till kurs
             $sql = "INSERT INTO Courses (course_id, name, progression, course_syllabus) VALUES ('$courseId', '$name', '$prog', '$syllabus');";
             $result = $this->db->query($sql);
         }
@@ -94,13 +95,27 @@ class Course
     }
 
     // Redigera en kurs
-    public function editCourse($id, $courseId, $name, $prog, $syllabus){
+    public function editCourse($id, $courseId, $name, $prog, $syllabus)
+    {
         // Kollar om en kurs med detta id finns
         $sql = "SELECT * FROM Courses WHERE id='$id';";
         $result = $this->db->query($sql);
 
         // Om kursen finns, redigera. Returnera false om kursen inte finns
         if (mysqli_num_rows($result)) {
+            // Gör om eventuella ' eller " till meningslösa tecken.
+            $courseId = $this->db->real_escape_string($courseId);
+            $name = $this->db->real_escape_string($name);
+            $prog = $this->db->real_escape_string($prog);
+            $syllabus = $this->db->real_escape_string($syllabus);
+
+            // Gör om eventuell html-kod till tecken
+            $courseId = htmlspecialchars($courseId);
+            $name = htmlspecialchars($name);
+            $prog = htmlspecialchars($prog);
+            $syllabus = htmlspecialchars($syllabus);
+
+            // Uppdatera kurs
             $sql = "UPDATE Courses SET course_id='$courseId', name='$name', progression='$prog', course_syllabus='$syllabus' WHERE id=$id;";
             $result = $this->db->query($sql);
             return $result;
