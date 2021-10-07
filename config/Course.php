@@ -98,7 +98,7 @@ class Course
     public function editCourse($id, $courseId, $name, $prog, $syllabus)
     {
         // Kollar om en kurs med detta id finns
-        $sql = "SELECT * FROM Courses WHERE id='$id';";
+        $sql = "SELECT * FROM Courses WHERE id=$id;";
         $result = $this->db->query($sql);
 
         // Om kursen finns, redigera. Returnera false om kursen inte finns
