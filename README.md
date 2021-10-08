@@ -35,6 +35,10 @@ Sen följer en switch-sats med olika cases för de olika metoderna GET, PUT, POS
 * case PUT - Om anropet inte har ett id medskickat kommer HTTP response status vara 400. Om id är medskickat kommer den datan som är medskickad att hämtas och göras om till ett objekt, sen anropas metoden editCourse där samtliga värden skickas med. Om den kunde uppdatera kursen skickas HTTP response status 200. Om den inte lyckas skickas HTTP response status 503. Ett meddelande om resultatet skrivs sen ut.
 * case DELETE- Om det inte är ett id medskickat skickas HTTP response status 400. Om det är ett id med skickat anropas metoden deleteCourse där id skickas med. Metoden raderar ur databasen på plats id. Ett meddelande om resultatet skrivs sen ut.
 
+## Installera
+Klona repot
+* git clone https://github.com/Ztawh/Moment5.git
+
 ### Webbtjänsten
 Länk till webbtjänsten (get allt): [länk](https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php)
 Länk till webbtjänsten (get id=10): [länk](https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php?id=10)
