@@ -8,7 +8,7 @@ Datan för webbtjänsten är kurser som jag har läst i mina dagar, detta visas 
 
 Webbtjänsten har en install-fil som återställer databasen genom att kolla om det finns en tabell med namnet Courses. Om så är fallet kommer den att tas bort och sen skapas på nytt. Allt i databasens tabell kommer alltså att försvinna.
 
-Host och lösen är borttaget från denna fil då jag inte ville lägga upp det på github.
+Lösen är borttaget från denna fil då jag inte ville lägga upp det på github.
 
 ## Course.php
 

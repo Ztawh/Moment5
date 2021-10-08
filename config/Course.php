@@ -12,7 +12,7 @@ class Course
                 die('Fel vid anslutning [' . $this->db->connect_error . ']');
             }
         } else {
-            $this->db = new mysqli(host, 'amhv2000', lösen, 'amhv2000');
+            $this->db = new mysqli('studentmysql.miun.se', 'amhv2000', 'lösen', 'amhv2000');
             if ($this->db->connect_errno > 0) {
                 die('Fel vid anslutning [' . $this->db->connect_error . ']');
             }
